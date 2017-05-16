@@ -30,6 +30,7 @@ namespace XF.AppMOB.Model
             var stream = await httpRequest.GetStreamAsync(
                 "http://apiaplicativomob20170515100753cba.azurewebsites.net/API/Professors");
 
+            // Serializamos
             var professorSerializer = new DataContractJsonSerializer(typeof(List<Professor>));
             professoresSqlAzure = (List<Professor>)professorSerializer.ReadObject(stream);
 
