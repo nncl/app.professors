@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,7 +28,7 @@ namespace XF.AppMOB.Model
 
             var httpRequest = new HttpClient();
             var stream = await httpRequest.GetStreamAsync(
-                "");
+                "http://apiaplicativomob20170515100753cba.azurewebsites.net/API/Professors");
 
             var professorSerializer = new DataContractJsonSerializer(typeof(List<Professor>));
             professoresSqlAzure = (List<Professor>)professorSerializer.ReadObject(stream);
